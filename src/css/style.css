@@ -1,0 +1,308 @@
+/* Archivo principal de estilos CSS */
+body {
+    font-family: poppins;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+nav div ul li a:hover{
+    /*background-image: linear-gradient(to bottom, #cb82e4, #c773e3);*/
+    text-shadow: 5px 5px 5px rgba(199, 114, 227, 0.651);
+    color: #C772E3;
+    font-weight: 400;
+}
+
+h1 {
+    color: #0056b3;
+}
+
+.bordeado{
+    text stroke-width: 1px;
+    text stroke color: black;
+    text fill color: transparent;
+}
+
+button {
+    background-image: linear-gradient(to bottom, rgb(182, 241, 62), #9c3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-image: linear-gradient(to bottom, rgb(190, 240, 89), rgb(168, 209, 84));
+}
+
+.btn-purpura {
+    background-image: linear-gradient(to bottom, #ff00ff, #850285);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-purpura:hover {
+    background-image: linear-gradient(to bottom, #ff62ff, #853f85);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn-lila{
+    background-image: linear-gradient(to bottom, #c773e3, #bf59e0);
+    color: white;
+}
+
+
+.btn-lila:hover{
+    background-image: linear-gradient(to bottom, #de88fa, #d671f8);
+    color: #ffffff;
+    font-weight: 500;
+    box-shadow: 5px 5px 5px rgba(199, 114, 227, 0.651);
+}
+
+/*--------------------------------*/
+
+.sectionhomepage, .sectionempresa, .sectionalianzas, .sectioncontacto{
+    background-image: url('../../img/BACKGROUND_BLANCO.png');
+    background-size: cover;
+}
+
+.sectionnavbar{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sectiontestimonial{
+    background-image: url('../../img/BACKGROUND_MORADO.png');
+    background-size: cover;
+}
+
+.sectioncertificados{
+    background-image: url('../../img/BACKGROUND_FUCSIA.png');
+    background-size: cover;
+}
+.txt_teaching{
+    color: rgba(0, 0, 0, 0.35);
+}
+
+.logoNC{
+    max-width: 150px;
+}
+
+.box_modelo_portada{
+    height: 357px;
+}
+
+.btn-wapp{
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.barrapagos{
+    background-color: #99ff00;
+    background-color: #9c3;
+    /*background-image: url('../../img/BACKGROUND_VERDE_2.png');*/
+    
+}
+
+.btn-pagos{
+  margin-top:-50px;
+  cursor: pointer;
+  width: 120px;
+}
+.btn-pagos:hover{
+    width: 125px;
+    box-shadow: 5px 5px 5px #00a533);
+}
+
+.card-img-top{
+    border-radius: 50%;
+    padding: 0px 30px 0px 30px;
+    margin-top: -50%;
+    /*border: solid 3px #99ff00;*/
+}
+
+.d-block{
+    border-radius: 50px;
+}
+.boton-derecho-carrusel{
+    border-radius: 0px 50px 50px 0px;
+    
+}
+.boton-izquierdo-carrusel{
+    border-radius: 50px 0px 0px 50px;
+}
+.sectionestumomento{
+    padding-top: 40px;
+    /*background-image: url('../../img/bg5.png');*/
+    background-size: cover;
+}
+
+.sectionesclases{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image: linear-gradient(to bottom, #ffffff, #00ff2a);
+    background-image: url('../../img/bg4.png');
+    background-size: cover;
+
+}
+
+.box_modelo_clases{
+    height: 905px;
+}
+.img_modelo_class{
+    position: absolute;
+    right: 0;
+
+}
+
+.borde_punteado{
+    border: solid 4px #99ff00;
+    border-style: dashed;
+    border-radius: 80px;
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.ico-youtube{
+    font-size: 2rem;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    /*background-image: linear-gradient(to bottom, rgb(182, 241, 62), #9c3);*/
+    color: #9c3;
+}
+.ico-youtube:hover{
+    /*background-image: linear-gradient(to bottom, rgb(190, 240, 89), rgb(168, 209, 84));*/
+    color: rgb(172, 255, 6);
+    width: 50px;
+}
+
+.box-videos-v1, .box-videos-v4,.box-videos-v1 img, .box-videos-v4 img{
+    background-color: #FE00F9;
+    border-radius: 70px 0px 70px 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.box-videos-v2, .box-videos-v3, .box-videos-v2 img, .box-videos-v3 img{
+    background-color: #9900CC;
+    border-radius: 0px 70px 0px 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.txt-card{
+  /*height: 260px;*/
+}
+.card-body-home{
+  height: 300px;
+}
+
+.comillas-final{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.sectionbroshure{
+    background-color: #C1F66A;
+    background-image: linear-gradient(to right, #d1ff87, #94d118);
+}
+
+.txt-unase{
+    color: #FE00F9;
+}
+
+.img_modelo_teacher{
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.box_img_broshure{
+    height: 620px;
+}
+.box_img_broshure img{
+    right: 0;
+}
+
+form input, form textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: large;
+}
+
+.sectionfutter{
+    background-color: #ff6600;
+}
+
+.box-formulario{
+    background-image: url('../../img/BACKGROUND_VERDE_2.png');
+    background-size: cover;
+
+    border-radius: 30px;
+    padding: 20px;
+}
+.videos-modal{
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+}
+.btn-x{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+}
+.box-videos-modal{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 800px) {
+  .logoNC{
+    display: none;
+  }
+  .box_modelo_portada{
+      display: inline-block;    
+    }
+  .img_modelo{
+    width: 100%;
+    position: relative;
+    }
+  .img_modelo_class .img_modelo_teacher{
+    width: 100%;
+  }
+  .box_modelo_clases{
+    height: 590px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+    nav div ul li{
+        font-size: 14px;
+    }   
+}
