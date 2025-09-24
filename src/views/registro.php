@@ -32,7 +32,7 @@
                             <label for="basic-url" class="form-label">Correo Electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">@</span>
-                                <input type="email" plasceholder="Username" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+                                <input type="text" name="email" plasceholder="Username" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
                                 
                             </div>
                             <div class="form-text" id="basic-addon4">No compartimos tu correo con nadie.</div>
@@ -42,17 +42,18 @@
                             <label for="loginPassword" class="form-label">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="password-first" name="password"><i class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" name="password" >
+                                <input type="password" name="password" class="form-control input-password" >
                                 
                             </div>
                             <label for="loginPassword" class="form-label">Confirmar Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="password-second"><i class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" name="password" >
+                                <input type="password" name="confirmarPassword" class="form-control input-password" >
                             </div>
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-btn btn-lila f20">Registrarse</button>
+                            <button id="btn-registarse" type="submit" class="btn btn-btn btn-lila f20">Registrarse</button>
+                            <div class="alert oculto" role="alert" id="alert-error-registro"></div>
                             <a href="login" type="button" class="btn-purple mt-2 center" id="showRegisterForm">Ya tengo una cuenta</a>
                         </div>
                     </form>
