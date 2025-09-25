@@ -8,6 +8,8 @@ require_once __DIR__ . '/../src/controllers/pagosController.php';
 require_once __DIR__ . '/../src/controllers/serviciosController.php';
 require_once __DIR__ . '/../src/controllers/LoginController.php';
 require_once __DIR__ . '/../src/controllers/registroController.php';
+require_once __DIR__ . '/../src/controllers/verificarController.php';
+require_once __DIR__ . '/../src/controllers/contratoController.php';
 
 function loadRoutes(Router $router)
 {
@@ -72,6 +74,26 @@ function loadRoutes(Router $router)
     $router->addRoute('POST', '/registro', function() {
         $controller = new registroController();
         $controller->registro();
+    });
+
+    $router->addRoute('GET', '/verificar', function() {
+        $controller = new verificarController();
+        $controller->index();
+    });
+
+    $router->addRoute('POST', '/verificar', function() {
+        $controller = new verificarController();
+        $controller->verificar();
+    });
+
+    $router->addRoute('GET', '/contrato', function() {
+        $controller = new contratoController();
+        $controller->index();
+    });
+
+    $router->addRoute('POST', '/contrato', function() {
+        $controller = new contratoController();
+        $controller->contrato();
     });
 }
 

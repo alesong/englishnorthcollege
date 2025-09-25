@@ -53,7 +53,13 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button id="btn-registarse" type="submit" class="btn btn-btn btn-lila f20">Registrarse</button>
-                            <div class="alert oculto" role="alert" id="alert-error-registro"></div>
+                            <div class="alert oculto" role="alert" id="alert-error-registro">
+                                <div id="msg-server">Mensaje del servidor</div>
+                                <div class="row mt10 form-verify oculto">
+                                    <div class="col"><input type="text" class="form-control" id="codigo"></div>
+                                    <div class="col"><button type="button" class="btn btn-primary form-control" id="verificarCodigo">Verificar</button></div>
+                                </div>
+                            </div>
                             <a href="login" type="button" class="btn-purple mt-2 center" id="showRegisterForm">Ya tengo una cuenta</a>
                         </div>
                     </form>

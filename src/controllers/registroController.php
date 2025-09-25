@@ -137,10 +137,7 @@ class registroController
                             [
                                 'success' => true,
                                 'message' => '<h2>Registro exitoso</h2> Hemos enviado un <strong>código de verificación.</strong><br> Por favor, revisa tu correo electrónico para completar el proceso de registro.
-                                <div class="row mt10">
-                                <div class="col"><input type="text" class="form-control" id="codigo" value="' . $codigo . '" readonly></div>
-                                <div class="col"><button type="button" class="btn btn-primary form-control" id="verificarCodigo">Verificar</button></div>
-                                </div>
+                               
                                 '
                             ]
                         );
@@ -161,10 +158,7 @@ class registroController
                         [
                             'success' => true,
                             'message' => '<h2>Registro exitoso (localhost)</h2> El correo de verificación no se envió en entorno de desarrollo. Código: ' . $codigo . '
-                            <div class="row mt10">
-                            <div class="col"><input type="text" class="form-control" id="codigo" value="' . $codigo . '" readonly></div>
-                            <div class="col"><button type="button" class="btn btn-primary form-control" id="verificarCodigo">Verificar</button></div>
-                            </div>
+                            
                             '
                         ]
                     );
