@@ -1,1 +1,1 @@
-<h2>Contrato</h2>
+<h2>El usuario es: <?php echo $user; ?></h2>

@@ -26,13 +26,13 @@
                     <?php endif; ?>
 
                     <!-- Formulario de Inicio de Sesión -->
-                    <form id="loginForm" action="<?php echo BASE_URL; ?>login" method="POST">
+                    <form id="loginForm" action="login" method="POST">
                         <div class="mb-3">
                             <div class="mb-3">
                             <label for="basic-url" class="form-label">Correo Electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">@</span>
-                                <input type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+                                <input value="aleson@gmail.com" type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="email" required>
                             </div>
                             
                         </div>
@@ -41,13 +41,14 @@
                             <label for="loginPassword" class="form-label">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3"><i class="bi bi-key"></i></span>
-                                <input type="password" class="form-control" id="loginPassword" name="password" required>
+                                <input value="111" type="password" class="form-control" id="loginPassword" name="password" required>
                             </div>
                             
                             
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                            <button id="btn-login" type="submit" class="btn btn-primary">Ingresar</button>
+                            <div id="alert-error-login" class="alert oculto"></div>
                             <a href="registro" type="button" class="btn-purple mt-2 center" id="showRegisterForm">No tengo una cuenta</a>
                         </div>
                     </form>

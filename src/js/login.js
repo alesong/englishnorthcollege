@@ -1,58 +1,41 @@
-$(document).ready(function() {
-    const loginForm = $('#loginForm');
-    const registerForm = $('#registerForm');
-    const showRegisterFormBtn = $('#showRegisterForm');
-    const showLoginFormBtn = $('#showLoginForm');
-    const formTitle = $('#formTitle');
-
-    showRegisterFormBtn.on('click', function() {
-        loginForm.hide();
-        registerForm.show();
-        formTitle.text('Registrarse');
-    });
-
-    showLoginFormBtn.on('click', function() {
-        registerForm.hide();
-        loginForm.show();
-        formTitle.text('Iniciar Sesión');
-    });
-
-    // Validación y envío del formulario de registro con AJAX
-    registerForm.on('submit', function(e) {
-        e.preventDefault(); // Evitar el envío normal del formulario
-
-        // Validaciones básicas del lado del cliente
-        const password = $('#registerPassword').val();
-        const confirmPassword = $('#confirmPassword').val();
-
-        if (password !== confirmPassword) {
-            alert('Las contraseñas no coinciden.');
-            return;
-        }
-
-        // Recopilar datos del formulario
-        const formData = $(this).serialize();
-
-        $.ajax({
-            url: 'api/apilogin.php', // Archivo PHP para procesar el registro
-            type: 'POST',
-            data: formData,
-            dataType: 'json', // Esperamos una respuesta JSON del servidor
-            success: function(response) {
-                if (response.success) {
-                    alert('Registro exitoso: ' + response.message);
-                    // Opcional: redirigir al usuario o mostrar el formulario de login
-                    registerForm.hide();
-                    loginForm.show();
-                    formTitle.text('Iniciar Sesión');
-                } else {
-                    alert('Error en el registro: ' + response.message);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert('Error al conectar con el servidor: ' + textStatus);
-                console.error('AJAX Error:', textStatus, errorThrown, jqXHR.responseText);
+$('#loginForm').on('submit', function(e) {
+    e.preventDefault();
+    console.log("Formulario de login enviado");
+    console.log($(this).serialize());
+    $("#btn-login").html('<div class="spinner-border text-light" role="status">  <span class="visually-hidden">Loading...</span></div>');
+    $('#btn-login').attr('disabled', true);
+    
+    $.ajax({
+              
+        url: './login',
+        type: 'POST',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(response) {
+            
+            $("#btn-login").html('Iniciar Sesión');
+            $('#btn-login').attr('disabled', false);
+            if (response.success == false) {
+                $("#alert-error-login").addClass("alert-danger").removeClass("alert-success , oculto");
+                $("#alert-error-login").html(response.message);
             }
-        });
+            
+            if (response.success == true) {
+                $("#alert-error-login").addClass("alert-success").removeClass("alert-danger , oculto");
+                $("#btn-login").attr('disabled', true);
+                $("#alert-error-login").html(response.message);
+                setTimeout(function() {
+                    window.location.href = "contrato";
+                }, 1500); // Redirigir después de 1.5 segundos
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            $("#btn-login").html('Iniciar Sesión');
+            $('#btn-login').attr('disabled', false);
+            $("#alert-error-login").addClass("alert-danger").removeClass("alert-success , oculto");
+            $("#alert-error-login").html('Error en la solicitud AJAX: ' + textStatus + ' - ' + errorThrown + '<br>Respuesta del servidor: ' + jqXHR.responseText);
+            console.error("Error en la solicitud AJAX:", textStatus, errorThrown, jqXHR.responseText);
+        }
     });
+    
 });

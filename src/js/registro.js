@@ -61,6 +61,9 @@ $('#verificarCodigo').on('click', function() {
                 $("#msg-server").html(response.message);
                 $("btn-registarse").attr('disabled' , true);
                 $("#verificarCodigo").html('<i class="bi bi-check-lg f22"></i>');
+                iniciarSession();
+
+
                 //redireccionar a la pagina de contrato en 3 segundos
                 setTimeout(function() {
                     $("#msg-server").html("<h2>Verificación Exitosa 3</h2>");
@@ -89,3 +92,26 @@ $('#verificarCodigo').on('click', function() {
     });
 });
 
+function iniciarSession() {
+    $.ajax({
+        url: './login',
+        type: 'POST',
+        data: {
+            email: $('#basic-url').val(),
+            password: $('#password').val()
+        },
+        dataType: 'json',
+        success: function(response) {
+            if (response.success == true) {
+                $("#alert-error-registro").addClass("alert-success").removeClass("alert-danger , oculto");
+                $("#msg-server").html(response.message);
+                $("#btn-registarse").attr('disabled' , true);
+
+            }
+            if (response.success == false) {
+                $("#alert-error-registro").addClass("alert-danger").removeClass("alert-success , oculto");
+                $("#msg-server").html(response.message);
+            }
+        }
+    });
+}

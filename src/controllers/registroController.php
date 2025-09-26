@@ -12,8 +12,8 @@ class registroController
     {
         // Lógica para procesar el formulario de registro
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $confirmarPassword = $_POST['confirmarPassword'];
+        $contrasenia = $_POST['password'];
+        $confirmarContrasenia = $_POST['confirmarPassword'];
 
         if($email == ''){
             header('Content-Type: application/json');
@@ -37,7 +37,7 @@ class registroController
             exit();
         }
 
-        if($password != $confirmarPassword or $password == ''){
+        if($contrasenia != $confirmarContrasenia or $contrasenia == ''){
             header('Content-Type: application/json');
             echo json_encode(
                 [
@@ -70,7 +70,7 @@ class registroController
             $sql = "CREATE TABLE IF NOT EXISTS usuarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL,
+                contrasenia VARCHAR(255) NOT NULL,
                 codigo INT NOT NULL,
                 verificado BOOLEAN DEFAULT FALSE,
                 fecha_verificacion DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -106,10 +106,10 @@ class registroController
             }
 
             //insertar el usuario en la base de datos
-            $sql = "INSERT INTO usuarios (email, password, codigo) VALUES (:email, :password, :codigo)";
+            $sql = "INSERT INTO usuarios (email, contrasenia, codigo) VALUES (:email, :contrasenia, :codigo)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':contrasenia', $contrasenia);
             $stmt->bindParam(':codigo', $codigo);
             error_log("Antes de ejecutar la inserción en la base de datos.");
             $result = $stmt->execute();
