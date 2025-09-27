@@ -5,6 +5,11 @@
         margin: 0;
         overflow: hidden; /* Evita el scroll de la página principal */
     }
+    /*
+    .card-header{
+        background-image: url('img/BACKGROUND_VERDE_2.png');
+    }
+    */
 </style>
 <?php include __DIR__ . '/header.php'; ?>
 

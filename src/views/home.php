@@ -125,7 +125,7 @@
                     
                         <div class="card" style="max-width: 18rem margin: auto;">
                         <img src="img/testi_angie_oka.png" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="card-body card-body-home">
                             <h5 class="card-title">Angie Blanco</h5>
                             <p class="card-text txt-card">
                                 <img class="img10 f-left mr10" src="img/comillas_inicio.png" class="img-fluid" alt="..."><br>
@@ -142,7 +142,7 @@
                         
                         <div class="card" style="max-width: 18rem margin: auto;">
                         <img src="img/testi_danna.png" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="card-body card-body-home">
                             <h5 class="card-title">Danna Quintero</h5>
                             <p class="card-text txt-card">
                                 <img class="img10 f-left mr10" src="img/comillas_inicio.png" class="img-fluid" alt="..."><br>

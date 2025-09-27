@@ -26,7 +26,7 @@ $('#loginForm').on('submit', function(e) {
                 $("#alert-error-login").html(response.message);
                 setTimeout(function() {
                     window.location.href = "contrato";
-                }, 1500); // Redirigir después de 1.5 segundos
+                }, 500); // Redirigir después de 0.5 segundos
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
