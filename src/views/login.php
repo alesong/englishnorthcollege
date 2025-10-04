@@ -37,7 +37,7 @@
                             <label for="basic-url" class="form-label">Correo Electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3">@</span>
-                                <input value="aleson@gmail.com" type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="email" required>
+                                <input value="" type="email" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="email" required>
                             </div>
                             
                         </div>
@@ -46,7 +46,7 @@
                             <label for="loginPassword" class="form-label">Contraseña</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon3"><i class="bi bi-key"></i></span>
-                                <input value="111" type="password" class="form-control" id="loginPassword" name="password" required>
+                                <input value="" type="password" class="form-control" id="loginPassword" name="password" required>
                             </div>
                             
                             

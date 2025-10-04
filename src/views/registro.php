@@ -10,11 +10,22 @@
         background-image: url('img/BACKGROUND_VERDE_2.png');
     }
     */
+    .ventana-interior{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow: auto; /* Habilita el scroll de la página principal */
+    }
 </style>
 <?php include __DIR__ . '/header.php'; ?>
 
 <section class="sectionhomepage">
-    <?php include __DIR__ . '/navbar.php'; ?>
+
+<div class="ventana-interior">
+
+
+
+<?php include __DIR__ . '/navbar.php'; ?>
 
 <main class="container mt-5">
     <div class="row justify-content-center">
@@ -30,7 +41,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <!-- Formulario de Inicio de Sesión -->
+                    <!-- Formulario de Registro -->
                     <form id="registroForm" action="<?php echo BASE_URL; ?>registro" method="POST">
                         <div class="mb-3">
                             <div class="mb-3">
@@ -73,6 +84,7 @@
         </div>
     </div>
 </main>
+</div>
 </section>
 
 <?php include __DIR__ . '/footer.php'; ?>

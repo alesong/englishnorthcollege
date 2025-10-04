@@ -8,6 +8,34 @@ class LoginController
         require_once __DIR__ . '/../views/login.php';
     }
 
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header('Location: login');
+    }
+
+    public function recuperacion($email = null)
+    {
+        // Lógica para mostrar el formulario de recuperación
+        require_once __DIR__ . '/../views/recuperacion.php';
+    }
+
+    public function recuperacionPost()
+    {
+        // Lógica para procesar el formulario de recuperación de contraseña
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'] ?? '';
+            // Aquí iría la lógica para enviar el correo de recuperación
+            // Por ahora, solo redirigimos o mostramos un mensaje
+            echo "Se ha solicitado la recuperación de contraseña para: " . htmlspecialchars($email);
+            // Puedes redirigir a una página de confirmación o mostrar un mensaje en la misma página
+        } else {
+            // Si se accede por GET sin email, mostrar el formulario vacío
+            require_once __DIR__ . '/../views/recuperacion.php';
+        }
+    }
+
     public function login()
     {
         // Lógica para procesar el inicio de sesión
@@ -63,7 +91,7 @@ class LoginController
                 echo json_encode(
                     [
                         'success' => false,
-                        'message' => 'Usuario o contraseña incorrectos'
+                        'message' => 'Usuario o contraseña incorrectos, por favor vuelva a intentarlo. <a href="login/recuperacion/'.$email.'">Olvidé mi contraseña</a>'
                     ]
                 );
                 exit();
@@ -74,7 +102,7 @@ class LoginController
                 echo json_encode(
                     [
                         'success' => false,
-                        'message' => 'El usuario no ha sido verificado'
+                        'message' => 'El usuario no ha sido dado de alta, por favor revise su correo electrónico para obtener el código de verificación. <a href="registro">Registrarse</a>'
                     ]
                 );
                 exit();
@@ -88,6 +116,7 @@ class LoginController
             echo json_encode(
                 [
                     'success' => true,
+                    'location' => 'preinscripcion',
                     'message' => 'Sesión iniciada exitosamente'
                 ]
             );

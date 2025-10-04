@@ -73,7 +73,8 @@ class registroController
                 contrasenia VARCHAR(255) NOT NULL,
                 codigo INT NOT NULL,
                 verificado BOOLEAN DEFAULT FALSE,
-                fecha_verificacion DATETIME DEFAULT CURRENT_TIMESTAMP
+                fecha_verificacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+                aprobado BOOLEAN DEFAULT FALSE
             )";
             $stmt = $pdo->prepare($sql);
             if(!$stmt->execute()){
@@ -94,12 +95,23 @@ class registroController
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if($row && $row['email'] == $email){
+            if($row && $row['email'] == $email && $row['verificado'] == 0){
                 header('Content-Type: application/json');
                 echo json_encode(
                     [
-                        'success' => false,
-                        'message' => 'Ya existe un usuario con ese correo electrónico'
+                        'success' => 'warning',
+                        'message' => 'Ya existe un usuario con ese correo electrónico, por favor ingrese el código de verificación que le hemos enviado.'
+                    ]
+                );
+                exit();
+            }
+
+            if($row && $row['email'] == $email && $row['verificado'] == 1){
+                header('Content-Type: application/json');
+                echo json_encode(
+                    [
+                        'success' => 'info',
+                        'message' => 'El usuario ya ha sido registrado y verificado. <a href="login">Iniciar sesión</a>'
                     ]
                 );
                 exit();
@@ -115,7 +127,7 @@ class registroController
             $result = $stmt->execute();
             error_log("Resultado de la inserción en la base de datos: " . ($result ? 'Éxito' : 'Fallo'));
 
-            $email2 = 'northcollegesantander@gmail.com';
+            $email2 = 'info@englishnorthcollege.edu.co';
             if($result){
                 $is_localhost = ($_SERVER['HTTP_HOST'] === 'localhost');
 
@@ -123,8 +135,9 @@ class registroController
                     $to = $email;
                     $subject = 'Codigo de verificacion';
                     $headers = 'From: ' . $email2 . "\r\n" .
-                               'Reply-To: ' . $email2 . "\r\n" .
-                               'X-Mailer: PHP/' . phpversion();
+                               'Reply-To:  itnorthcollege@gmail.com  "\r\n" '.
+                               'X-Mailer: PHP/' . phpversion() .
+                               'Content-Type: text/plain; charset=UTF-8';
                     $email_body = "Codigo de verificacion: $codigo\n" .
                                    "Este es mensaje automático. Por favor, no responda a este mensaje.\n";
 

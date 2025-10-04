@@ -144,6 +144,7 @@
 .f8rem{font-size: 8rem}
 .f9rem{font-size: 9rem}
 .f10rem{font-size: 10rem}
+
 .fw100{font-weight: 100}
 .fw200{font-weight: 200}
 .fw300{font-weight: 300}
@@ -153,6 +154,17 @@
 .fw700{font-weight: 700}
 .fw800{font-weight: 800}
 .fw900{font-weight: 900}
+
+.lh1{line-height: 1}
+.lh1_5{line-height: 1.5}
+.lh2{line-height: 2}
+.lh2_5{line-height: 2.5}
+.lh3{line-height: 3}
+.lh3_5{line-height: 3.5}
+.lh4{line-height: 4}
+.lh4_5{line-height: 4.5}
+.lh5{line-height: 5}
+
 .f6{font-size: 6px}
 .f7{font-size: 7px}
 .f8{font-size: 8px}

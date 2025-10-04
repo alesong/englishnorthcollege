@@ -10,6 +10,7 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
 require_once __DIR__ . '/../src/controllers/registroController.php';
 require_once __DIR__ . '/../src/controllers/verificarController.php';
 require_once __DIR__ . '/../src/controllers/contratoController.php';
+require_once __DIR__ . '/../src/controllers/preinscripcionController.php';
 
 function loadRoutes(Router $router)
 {
@@ -61,9 +62,31 @@ function loadRoutes(Router $router)
         $controller->index();
     });
 
+    // Ruta para mostrar el formulario de recuperación de contraseña (sin email en la URL)
+    $router->addRoute('GET', '/login/recuperacion', function() {
+        $controller = new LoginController();
+        $controller->recuperacion();
+    });
+
+    // ruta login con una variable en la url para recuperar la contraseña
+    $router->addRoute('GET', '/login/recuperacion/{email}', function($email) {
+        $controller = new LoginController();
+        $controller->recuperacion($email);
+    });
+
+    $router->addRoute('POST', '/login/recuperacion', function() {
+        $controller = new LoginController();
+        $controller->recuperacionPost(); // Nuevo método para manejar el POST
+    });
+    
     $router->addRoute('POST', '/login', function() {
         $controller = new LoginController();
         $controller->login();
+    });
+
+    $router->addRoute('GET', '/logout', function() {
+        $controller = new LoginController();
+        $controller->logout();
     });
 
     $router->addRoute('GET', '/registro', function() {
@@ -84,6 +107,16 @@ function loadRoutes(Router $router)
     $router->addRoute('POST', '/verificar', function() {
         $controller = new verificarController();
         $controller->verificar();
+    });
+
+    $router->addRoute('GET', '/preinscripcion', function() {
+        $controller = new preinscripcionController();
+        $controller->index();
+    });
+
+    $router->addRoute('POST', '/preinscripcion', function() {
+        $controller = new preinscripcionController();
+        $controller->preinscripcion();
     });
 
     $router->addRoute('GET', '/contrato', function() {

@@ -36,6 +36,17 @@ $("#registroForm").on('submit', function(e) {
                 $(".form-verify").removeClass("oculto");
 
             }
+            if(response.success == 'warning'){
+                $("#alert-error-registro").addClass("alert-warning").removeClass("alert-danger , oculto");
+                $("#msg-server").html(response.message);
+                $(".form-verify").removeClass("oculto");
+                
+            }
+            if(response.success == 'info'){
+                $("#alert-error-registro").addClass("alert-info").removeClass("alert-danger , oculto");
+                $("#msg-server").html(response.message);
+                
+            }
         }
         
     });
@@ -78,8 +89,8 @@ $('#verificarCodigo').on('click', function() {
                     $("#msg-server").html("<h2>Verificación Exitosa 0</h2>");
                 }, 4000);
                 setTimeout(function() {
-                    window.location.href = "contrato";
-                }, 4000);
+                    window.location.href = response.location;
+                }, 0);
             }
             if (response.success == false) {
                 $("#alert-error-registro").addClass("alert-danger").removeClass("alert-success , oculto");
