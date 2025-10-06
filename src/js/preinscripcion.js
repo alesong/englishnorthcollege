@@ -56,5 +56,22 @@ $("#checkMismoAdquiriente").on('change', function() {
 });
 
 $('#btn-finalizar').on('click', function(e) {
-    location.href = 'contrato';
+    e.preventDefault();
+    $.ajax({
+        url: './preinscripcion',
+        type: 'POST',
+        data: {'preinscripcion': 1 },
+        dataType: 'json',
+        success: function(response) {
+            if (response.success == true) {
+                console.log(response.message);
+                location.href = 'contrato';
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            $(".alert-error-preinscripcion").addClass("alert-danger").removeClass("alert-success , oculto");
+            $(".alert-error-preinscripcion").html('Error en la solicitud AJAX: ' + textStatus + ' - ' + errorThrown + '<br>Respuesta del servidor: ' + jqXHR.responseText);
+            console.error("Error en la solicitud AJAX:", textStatus, errorThrown, jqXHR.responseText);
+        }
+    });
 });

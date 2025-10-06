@@ -28,6 +28,25 @@ class preinscripcionController
             exit();
         }
 
+        $sql = "SELECT estado_user FROM usuarios WHERE email = :email";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':email', $_SESSION['user']);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id_usuario = $row['estado_user'];
+        $estado_user = $row['estado_user'];
+        if($estado_user == 'preinscrito'){
+            header('location: contrato');
+            header('Content-Type: application/json');
+            echo json_encode(
+                [
+                    'success' => false,
+                    'message' => 'El usuario '.$_SESSION['user'].' ya ha sido aprobado'
+                ]
+            );
+            exit();
+        }
+
         $sql = "SELECT * FROM datos_usuarios WHERE id_usuario = (SELECT id FROM usuarios WHERE email = :email)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':email', $_SESSION['user']);
@@ -60,6 +79,21 @@ class preinscripcionController
                 exit();
             }
 
+            if(isset($_POST['preinscripcion'])){
+                $email = $_SESSION['user'];
+                $sql = "UPDATE usuarios SET estado_user = 'preinscrito' WHERE email = '$email'";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                header('Content-Type: application/json');
+                echo json_encode(
+                    [
+                        'success' => true,
+                        'message' => 'Usuario '.$email.' aprobado'
+                    ]
+                );
+                exit();
+            }
+
             //extraer id de usuario
             $sql = "SELECT id FROM usuarios WHERE email = :email";
             $stmt = $pdo->prepare($sql);
@@ -75,6 +109,8 @@ class preinscripcionController
             $sql .= $campo . "='" . $dato . "' WHERE id_usuario = " . $id_usuario;
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
+
+            
             
        header('Content-Type: application/json');
        echo json_encode(

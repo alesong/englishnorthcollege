@@ -98,7 +98,7 @@
                 <div class="row align-items-center pt40 center">
                     <div class="col">
                         <p class="f22 fw500 negrita white">
-                            Nuestros estdiantes proporcionan una perspectiva auténtica y personalizada con resultados óptimos. 
+                            Nuestros estudiantes proporcionan una perspectiva auténtica y personalizada con resultados óptimos. 
                         </p>
                     </div>
                 </div>

@@ -1,3 +1,3 @@
 <!-- El id viene del archivo preinscripcion.php -->
 <label id="label-<?php echo $id; ?>" for="<?php echo $id; ?>"><?php echo $label; ?><i id="icon-<?php echo $id; ?>" class="bi bi-check ml5 oculto"></i></label>
-<input type="<?php echo $type; ?>" class="form-control" id="<?php echo $id; ?>" name="<?php echo $id; ?>" onchange="update('<?php echo $id; ?>')" value="<?php echo $row[$id]; ?>">
+<input type="<?php echo $type; ?>" class="form-control" id="<?php echo $id; ?>" name="<?php echo $id; ?>" onchange="update('<?php echo $id; ?>')" value="<?php echo $row[$id]; ?>" required="<?php echo $required; ?>">

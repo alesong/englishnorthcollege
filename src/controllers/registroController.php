@@ -74,7 +74,8 @@ class registroController
                 codigo INT NOT NULL,
                 verificado BOOLEAN DEFAULT FALSE,
                 fecha_verificacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-                aprobado BOOLEAN DEFAULT FALSE
+                aprobado BOOLEAN DEFAULT FALSE,
+                estado_user INT DEFAULT 0
             )";
             $stmt = $pdo->prepare($sql);
             if(!$stmt->execute()){

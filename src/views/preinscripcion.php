@@ -69,6 +69,7 @@
                                                             $id = 'nombres';
                                                             $label = 'Nombres y Apellidos';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -79,6 +80,7 @@
                                                             $id = 'profesion';
                                                             $label = 'Profesión';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -92,6 +94,7 @@
                                                             $id = 'numero_documento';
                                                             $label = 'Numero de Documento';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -102,6 +105,7 @@
                                                             $id = 'estado_civil';
                                                             $label = 'Estado Civil';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -112,6 +116,7 @@
                                                             $id = 'fecha_nacimiento';
                                                             $label = 'Fecha de Nacimiento';
                                                             $type = 'date';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -139,6 +144,7 @@
                                                             $id = 'direccion_domicilio';
                                                             $label = 'Dirección Domicilio';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -149,6 +155,7 @@
                                                             $id = 'ciudad_domicilio';
                                                             $label = 'Ciudad Domicilio';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -162,6 +169,7 @@
                                                             $id = 'telefono_celular';
                                                             $label = 'Telefono Celular';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -192,6 +200,7 @@
                                                             $id = 'empresa';
                                                             $label = 'Empresa donde trabaja';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -202,6 +211,7 @@
                                                             $id = 'cargo';
                                                             $label = 'Cargo';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>    
@@ -215,6 +225,7 @@
                                                             $id = 'direccion_laboral';
                                                             $label = 'Direccion Laboral';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -223,8 +234,9 @@
                                                     <div class="form-group">
                                                         <?php 
                                                             $id = 'telefono_laboral';
-                                                            $label = 'Direccion Laboral';
+                                                            $label = 'Teléfono Laboral';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -238,6 +250,7 @@
                                                             $id = 'antiguedad';
                                                             $label = 'Antigüedad';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -249,6 +262,7 @@
                                                             $id = 'ingreso_mensual';
                                                             $label = 'Ingreso Mensual';
                                                             $type = 'text';
+                                                            $required = 'required';
                                                             require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
                                                     </div>
@@ -278,6 +292,7 @@
                                                         $id = 'referencia_familiar';
                                                         $label = 'Referencia Familiar';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -288,6 +303,7 @@
                                                         $id = 'parentesco_familiar';
                                                         $label = 'Parentesco';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -298,6 +314,7 @@
                                                         $id = 'celular_familiar';
                                                         $label = 'Celular';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -310,6 +327,7 @@
                                                         $id = 'referencia_personal';
                                                         $label = 'Referencia Personal';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -320,6 +338,7 @@
                                                         $id = 'parentesco_personal';
                                                         $label = 'Parentesco';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -330,6 +349,7 @@
                                                         $id = 'celular_personal';
                                                         $label = 'Celular';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -348,7 +368,7 @@
 
                                 <div class="carousel-item">
                                     <div class="center mb30 fw500 f20">Usuarios para ingresar a EMW</div>
-                                    <form>
+                                    <form action="" id="form-preinscripcion">
                                         <div class="row mb30">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -356,6 +376,7 @@
                                                         $id = 'nombre_usuario_emw_principal';
                                                         $label = 'Nombre completo de quien recibe la capacitación';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -377,6 +398,7 @@
                                                         $id = 'identificacion_usuario_emw_principal';
                                                         $label = 'No. Documento de Identidad';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -388,6 +410,7 @@
                                                         $id = 'email_usuario_emw_principal';
                                                         $label = 'Correo Electronico';
                                                         $type = 'email';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -399,6 +422,7 @@
                                                         $id = 'celular_usuario_emw_principal';
                                                         $label = 'Celular';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -413,6 +437,7 @@
                                                         $id = 'nombre_usuario_emw_beneficiario';
                                                         $label = 'Nombre completo de beneficiario';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -426,6 +451,7 @@
                                                         $id = 'identificacion_usuario_emw_beneficiario';
                                                         $label = 'No. Documento de Identidad';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -437,6 +463,7 @@
                                                         $id = 'email_usuario_emw_beneficiario';
                                                         $label = 'Correo Electronico';
                                                         $type = 'email';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -448,6 +475,7 @@
                                                         $id = 'celular_usuario_emw_beneficiario';
                                                         $label = 'Celular';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -460,6 +488,8 @@
                                                 <div class="btn-lila radius5 center pointer oculto" id="btn-retirar-beneficiario">Retirar Beneficiario <span class="grey f12 ml5 mr5">(Opcional)</span><i class="bi bi-arrow-bar-up"></i></div>
                                             </div>
                                         </div>
+
+                                        <input type="hidden" name="preinscripcion" value="1">
 
                                         <div class="right">
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -484,6 +514,7 @@
                                                         $id = 'nombre_codeudor';
                                                         $label = 'Nombre Completo';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -494,6 +525,7 @@
                                                         $id = 'identificacion_codeudor';
                                                         $label = 'No. Documento de Identidad';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -504,6 +536,7 @@
                                                         $id = 'direccion_codeudor';
                                                         $label = 'Dirección';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -516,6 +549,7 @@
                                                         $id = 'celular_codeudor';
                                                         $label = 'Celular';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -526,6 +560,7 @@
                                                         $id = 'empresa_codeudor';
                                                         $label = 'Empresa donde trabaja';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>
@@ -536,6 +571,7 @@
                                                         $id = 'cargo_codeudor';
                                                         $label = 'Cargo';
                                                         $type = 'text';
+                                                        $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
                                                 </div>

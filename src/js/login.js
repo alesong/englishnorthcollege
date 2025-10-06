@@ -24,9 +24,7 @@ $('#loginForm').on('submit', function(e) {
                 $("#alert-error-login").addClass("alert-success").removeClass("alert-danger , oculto");
                 $("#btn-login").attr('disabled', true);
                 $("#alert-error-login").html(response.message);
-                setTimeout(function() {
-                    window.location.href = response.location;
-                }, 0); // Redirigir después de 0 segundos
+                location.href = response.location;
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {

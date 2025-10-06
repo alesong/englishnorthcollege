@@ -116,6 +116,7 @@ class LoginController
             echo json_encode(
                 [
                     'success' => true,
+                    'locationRemoto' => 'https://englishnorthcollege.com/preinscripcion',
                     'location' => 'preinscripcion',
                     'message' => 'Sesión iniciada exitosamente'
                 ]

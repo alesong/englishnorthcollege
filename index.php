@@ -9,7 +9,11 @@ require_once __DIR__ . '/src/Router.php';
 require_once __DIR__ . '/config/routes.php';
 
 
-define('BASE_URL', '/englishnorthcollege/');
+if ($_SERVER['HTTP_HOST'] == 'localhost') {
+    define('BASE_URL', '/englishnorthcollege/');
+} else {
+    define('BASE_URL', '/');
+}
 
 $basePath = BASE_URL;
 $requestUri = str_replace($basePath, '', $_SERVER['REQUEST_URI']);
