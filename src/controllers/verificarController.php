@@ -72,7 +72,6 @@ class verificarController
                 $sql = "CREATE TABLE IF NOT EXISTS datos_usuarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 id_usuario INT NOT NULL,
-                fecha_contrato DATE NOT NULL,
                 nombres VARCHAR(50) NOT NULL,
                 apellidos VARCHAR(50) NOT NULL,
                 profesion VARCHAR(50) NOT NULL,
@@ -86,7 +85,7 @@ class verificarController
                 cargo VARCHAR(50) NOT NULL,
                 direccion_laboral VARCHAR(50) NOT NULL,
                 telefono_laboral VARCHAR(50) NOT NULL,
-                antiguedad INT NOT NULL,
+                antiguedad VARCHAR(50) NOT NULL,
                 ingreso_mensual INT NOT NULL,
                 referencia_familiar VARCHAR(50) NOT NULL,
                 parentesco_familiar VARCHAR(50) NOT NULL,

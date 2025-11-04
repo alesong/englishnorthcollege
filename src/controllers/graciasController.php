@@ -14,7 +14,8 @@ class graciasController
             $mensaje = htmlspecialchars(trim($_POST['mensaje']));
 
             if (!empty($nombre) && !empty($email) && !empty($mensaje) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $to = 'northcollegesantander@gmail.com';
+                $to = 'itnorthcollege@gmail.com, northcollegesantander@gmail.com';
+                //$to = 'northcollegesantander@gmail.com';
                 $subject = 'Mensaje de Contacto desde página North College';
                 $headers = 'From: ' . $email . "\r\n" .
                            'Reply-To: ' . $email . "\r\n" .

@@ -56,22 +56,45 @@ $("#checkMismoAdquiriente").on('change', function() {
 });
 
 $('#btn-finalizar').on('click', function(e) {
-    e.preventDefault();
-    $.ajax({
-        url: './preinscripcion',
-        type: 'POST',
-        data: {'preinscripcion': 1 },
-        dataType: 'json',
-        success: function(response) {
-            if (response.success == true) {
-                console.log(response.message);
-                location.href = 'contrato';
+    //e.preventDefault();
+    if(
+        $('#nombres').val() != "" && 
+        $('#profecion').val() != "" && 
+        $('#numero_documento').val() != "" && 
+        $('#estado_civil').val() != "" && 
+        $('#fecha_nacimiento').val() != ""
+    ){
+        $.ajax({
+            url: './preinscripcion',    
+            type: 'POST',
+            data: {'preinscripcion': 1 },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success == true) {
+                    console.log(response.message);
+                    location.href = 'servicios';
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                $(".alert-error-preinscripcion").addClass("alert-danger").removeClass("alert-success , oculto");
+                $(".alert-error-preinscripcion").html('Error en la solicitud AJAX: ' + textStatus + ' - ' + errorThrown + '<br>Respuesta del servidor: ' + jqXHR.responseText);
+                console.error("Error en la solicitud AJAX:", textStatus, errorThrown, jqXHR.responseText);
             }
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            $(".alert-error-preinscripcion").addClass("alert-danger").removeClass("alert-success , oculto");
-            $(".alert-error-preinscripcion").html('Error en la solicitud AJAX: ' + textStatus + ' - ' + errorThrown + '<br>Respuesta del servidor: ' + jqXHR.responseText);
-            console.error("Error en la solicitud AJAX:", textStatus, errorThrown, jqXHR.responseText);
-        }
-    });
+        });
+    }else{
+        $(".alert-error-contrato").addClass("alert-danger").removeClass("alert-success , oculto");
+        $(".alert-error-contrato").html('Por favor, rellene todos los campos.');
+        //tiempo de espera para ocultar alerta
+        setTimeout(function(){
+            $(".alert-error-contrato").addClass("oculto");
+        }, 5000);
+    }
 });
+
+function progressBar(numero){
+    console.log(numero);
+    numero = numero+'%';
+    console.log(numero);
+    $('.progress-bar-9c3').css('width', numero).html(numero); 
+    
+}

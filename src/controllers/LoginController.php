@@ -108,20 +108,56 @@ class LoginController
                 exit();
             }
 
+            //-------------------------------------------------------------------------------------
+
             // Si todo es correcto, iniciar sesión
             $user = $row['email'];
             // session_start(); // La sesión ya se inicia en index.php
             $_SESSION['user'] = $user;
+
+            require_once __DIR__ . '/obtenerEstado.php'; // Incluir la nueva clase obtenerEstado
+            $obtenerEstado = new obtenerEstado();
+            $estado_usuario_data = $obtenerEstado->obtenerEstado($_SESSION['user']);
+            $estado = $estado_usuario_data['estado_user'] ?? 'Desconocido';
+            $rol = $row['rol'] ?? 'estudiante';
+
+            if($rol == 'admin'){
+                $location = 'admin'; //Redirigir a la zona de administracion este campo todavia no existe
+            }
+
+            if($rol == 'marketing'){
+                $location = 'marketing';
+            }else{
+                
+                if($estado == '0'){ //Ningun estado asignado
+                    $location = 'preinscripcion';
+                }
+    
+                if($estado == 'preinscrito'){
+                    $location = 'servicios';
+                }
+    
+                if($estado == 'firmado'){
+                    $location = 'pagos';
+                }
+    
+                if($estado == 'matriculado'){
+                    $location = 'index'; //Cambiar a la zona de alumnos este campo todavia no existe
+                }
+            }
+            
+
             header('Content-Type: application/json');
             echo json_encode(
                 [
                     'success' => true,
                     'locationRemoto' => 'https://englishnorthcollege.com/preinscripcion',
-                    'location' => 'preinscripcion',
+                    'location' => $location,
                     'message' => 'Sesión iniciada exitosamente'
                 ]
             );
             exit();
+            
         }
     }
 }

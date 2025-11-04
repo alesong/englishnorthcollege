@@ -1,54 +1,68 @@
 <style>
-    html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        overflow: hidden; /* Evita el scroll de la página principal */
-    }
-    iframe{
-        height: 100%;
-        width: 100%;
-        border: none; /* Elimina el borde del iframe */
-    }
-    .spinner-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
-        z-index: 9999; /* Asegura que esté por encima de todo */
-    }
-    .spinner {
-        border: 8px solid #f3f3f3; /* Light grey */
-        border-top: 8px solid #3498db; /* Blue */
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    .barra{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 30px;
-        background-color: #9c3;
+    body {
+        background-color: #f7f7f7;
     }
 </style>
-<!-- Contenedor del spinner 
-<div id="spinner-container" class="spinner-container">
-    <div class="spinner"></div>
-</div>
--->
+<section class="sectionUser">
+    <div class="container">
+        <div class="row left">
+            <div class="col-md-12 right">
+            <span class="mr10 white"><?php echo $user; ?></span>
+            <a href="logout" id="btn-logout" type="button" class="btn btn-lila f14 mt4 mb4">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-<iframe id="pdf-viewer" src="NC_BROWCHURE_light.pdf" width="100%" height="100%" frameborder="0"></iframe>
-<div class="barra oculto"></div>
+<section class="">
+    <div class="container">
+        <div class="row justify-content-center">
+            <section class=" mt30 mb30 pb30">
+                <div class="container f12 pb30 pt30">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p1.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p2.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p3.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p4.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p5.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <img class="img100" src="img/servicios/broshure_p6.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="row center">
+                        <div class="col-md-12 center mt50">
+                            <a href="contrato" class=""><BUtton class="btn-lila p8 pl20 pr20 f20">IR AL CONTRATO</BUtton></a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

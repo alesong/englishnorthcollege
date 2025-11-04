@@ -30,7 +30,7 @@
     .box-firma{
         border-radius: 10px;
         border: 0px solid #9c3;
-        display: inline-block;
+        /*display: inline-block;*/
     }
     .clear-firma{
         border-radius: 0px 0px 0px 10px;
@@ -41,7 +41,10 @@
         border-radius: 0px 0px 10px 0px;
         border: none;
     }
-    
+    .espacio-firma{
+        display: inline-block;
+    }
+
     .linea-punteada{
         border: 2px solid #505050ff;
         border-style: dashed;
@@ -54,8 +57,11 @@
     .bg-9c3{
         background-color: #9c3;
     }
+    #form-firma{
+        text-align: left;
+    }
 </style>
-<?php include __DIR__ . '/sectionUser.php'; ?>
+
 
 <section class="">
     <div class="container">
@@ -82,7 +88,7 @@
                             <div class="row pl10 pr10 -mt1">
                                 <div class="col-md-3 b1 inlineBlock p0 -ml1">
                                     <div><label class="f10 pl5">FECHA DEL CONTRATO</label></div>
-                                    <input type="text" class="col100 b0" id="" value="<?php echo date('Y-m-d'); ?>" readonly>
+                                    <input type="text" class="col100 b0" id="" value="<?php if(isset($row['fecha_contrato']) && $row['fecha_contrato'] != '') {echo date($row['fecha_contrato']);}else{echo date('Y-m-d');} ?>" readonly>
                                 </div>
                                 <div class="col-md-9 right">
                                     <div class="consecutivo"><?php echo $id_usuario+100; ?></div>
@@ -148,8 +154,18 @@
                                         $id = 'email';
                                         $label = 'E-MAIL';
                                         $type = 'text';
-                                        require __DIR__ . '../../controllers/include_input_contrato.php';
+                                        //require __DIR__ . '../../controllers/include_input_contrato.php';
                                     ?>
+                                    <div>
+                                        
+<!----------------------------------------------->                                        
+    <label id="label-<?php echo $id; ?>" class="f10 pl5" for="<?php echo $id; ?>"><?php echo $label; ?><i id="icon-<?php echo $id; ?>" class="bi bi-check ml5 oculto"></i></label>
+</div>
+<input type="<?php echo $type; ?>" class="col100 b0 pl5" id="<?php echo $id; ?>" name="<?php echo $id; ?>" onchange="update('<?php echo $id; ?>')" value="<?php echo $row_email[$id]; ?>">
+<!----------------------------------------------->
+
+
+
                                 </div>
                                 <div class="col-md-3 b1 inlineBlock p0 -ml1">
                                     <?php 
@@ -436,37 +452,37 @@
                             <div class="col b1  p0">
                                 <div><label class="f10 pl5 tc-333">VALOR DEL PRGRAMA</label></div>
                                 
-<div class="input-group">
-  <span class="input-group-text radius0">$</span>
-  <input type="number" class="form-control radius0" id="input_valor_programa" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_programa'] ?? ''; ?>" required>
-  
-</div>
+                                <div class="input-group">
+                                <span class="input-group-text radius0">$</span>
+                                <input type="number" class="form-control radius0" id="input_valor_programa" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_programa'] ?? ''; ?>" required>
+                                
+                                </div>
 
                                 
                             </div>
                             <div class="col b1  p0">
                                 <div><label class="f10 pl5 tc-333">VALOR CUOTA INICIAL</label></div>
-<div class="input-group">
-  <span class="input-group-text radius0">$</span>
-  <input type="number" class="form-control radius0" id="input_valor_cuota_inicial" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_cuota_inicial'] ?? ''; ?>" required>
-  
-</div>
+                                <div class="input-group">
+                                <span class="input-group-text radius0">$</span>
+                                <input type="number" class="form-control radius0" id="input_valor_cuota_inicial" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_cuota_inicial'] ?? ''; ?>" required>
+                                
+                                </div>
                             </div>
                             <div class="col b1  p0">
                                 <div><label class="f10 pl5 tc-333">VALOR CUOTAS MENSUALES</label></div>
-<div class="input-group">
-  <span class="input-group-text radius0">$</span>
-  <input type="number" class="form-control radius0" id="input_valor_cuotas_mensuales" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_cuotas_mensuales'] ?? ''; ?>" required>
-  
-</div>
+                                <div class="input-group">
+                                <span class="input-group-text radius0">$</span>
+                                <input type="number" class="form-control radius0" id="input_valor_cuotas_mensuales" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_valor_cuotas_mensuales'] ?? ''; ?>" required>
+                                
+                                </div>
                             </div>
                             <div class="col b1  p0">
                                 <div><label class="f10 pl5 tc-333">NÚMERO DE CUOTRAS MENSUALES</label></div>
-<div class="input-group">
-  
-  <input type="number" class="form-control radius0" id="input_numero_cuotas" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_numero_cuotas'] ?? ''; ?>" required>
-  
-</div>
+                                <div class="input-group">
+                                
+                                <input type="number" class="form-control radius0" id="input_numero_cuotas" aria-label="Amount (to the nearest dollar)" value="<?php echo $row['input_numero_cuotas'] ?? ''; ?>" required>
+                                
+                                </div>
                             </div>
                         </div>
                         <div class="form-check ml6">
@@ -486,97 +502,98 @@
                             
                         </div>
                     
-                    <?php
-                    if( isset($row['firma']) && $row['firma']!=''){
-                        //insertar imagen base64 en la firma
-                        //extraer firma
-                        $firma = $row['firma'];
-                        echo '<div class="espacio-firma"><img src="'.$firma.'" class="img-firma"></div>';
-                    } else {
-                        ?>
-                        <div class="box-firma">
-                            <span class="absolute ml10 mt5 tc-555">FIRMA TITULAR</span>
-                            <canvas id="signature-pad"></canvas>
-                            <div class="row -mt5">
-                                <div class="col pr0" id=""><button id="clear-firma" type="button" class="btn btn-primary col100 clear-firma"><i class="bi bi-eraser-fill"></i></button></div>
-                                <div class="col pl0" id=""><button type="submit" class="btn btn-lila col100 save-firma"><i class="bi bi-check-circle-fill "></i></button></div>
-                            </div>
-                            
-                        </div>
-                        <div class="espacio-firma oculto"></div>
                         <?php
-                    }
-                    ?>
-                    <div class="f14">
-                        <strong>
-                            <?php 
-                                if( isset($row['nombres']) && $row['nombres']!=''){
-                                    echo $row['nombres'].'<br>';
-                                } else {
-                                    echo 'Nombre del adquirente<br>';
-                                }
-                                echo 'C.C: '.$row['numero_documento'] ?? 'Número de documento<br>';
+                        if( isset($row['firma']) && $row['firma']!=''){
+                            //insertar imagen base64 en la firma
+                            //extraer firma
+                            $firma = $row['firma'];
+                            echo '<div class="espacio-firma"><img src="'.$firma.'" class="img-firma"></div>';
+                        } else {
                             ?>
-                        </strong>
-                    </div>
-
-
-                    <div class="linea-punteada <?php if(!isset($row['firma']) || $row['firma']==''){ echo 'oculto'; } ?>"></div>
-
-                    <div class="box-pagare bg-white p20 radius5 mt20 <?php if(!isset($row['firma']) || $row['firma']==''){ echo 'oculto'; } ?>">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="f22 fw-bold">PAGARÉ</div>
-                                <p class="justificado lh2 m0">
-                                    En (los) suscrito(s)________________________________________ 
-                                    Por medio de este PAGARÉ me(nos) obligo(abligamos) incondicionalmente a pagar a la orden de INSTITUCION EDUCATIVA NORTH COLLEGE DE SANTANDER S.A.S. 
-                                    la suma de_____________________________________________________
-                                    ($___________________) el día_________________ de_____________________ del año________________________________ 
-                                    en la ciudad de____________________________ o en otro lugar que se me(nos) requiera para el pago, con intereses moratiorios a la tasa equivalente hasta el doble del corriente bancario, pero sin exeder, en todo caso, los limites legales.
-                                    En constancia de lo anterior, suscribo(suscribimos) el presente PAGARÉ en_____________________ a los_________ días del mes de___________ del año______________
-                                </p>
+                            <div class="box-firma oculto">
+                                <span class="absolute ml10 mt5 tc-555">FIRMA TITULAR</span>
+                                <canvas id="signature-pad"></canvas>
+                                <div class="row -mt5">
+                                    <div class="col pr0" id=""><button id="clear-firma" type="button" class="btn btn-primary col100 clear-firma"><i class="bi bi-eraser-fill"></i></button></div>
+                                    <div class="col pl0" id=""><button type="submit" class="btn btn-lila col100 save-firma"><i class="bi bi-check-circle-fill "></i></button></div>
+                                </div>
+                                
                             </div>
+                            <div class="espacio-firma"><div class="b1 p50 tc-bbb fw-700">ESPACIO PARA LA FIRMA</div></div>
                             <?php
-                            if( isset($row['firma']) && $row['firma']!=''){
-                        //insertar imagen base64 en la firma
-                        //extraer firma
-                        $firma = $row['firma'];
-                        echo '<div class="espacio-firma"><img src="'.$firma.'" class="img-firma"></div>';
-                    }else{
-                        echo '<div class="espacio-firma"></div>';
-                    }
-                            ?>
-                            <div class="f14">
-                                <strong>
-                                    <?php 
-                                        if( isset($row['nombres']) && $row['nombres']!=''){
-                                            echo $row['nombres'].'<br>';
-                                        } else {
-                                            echo 'Nombre del adquirente<br>';
-                                        }
-                                        echo 'C.C: '.$row['numero_documento'] ?? 'Número de documento<br>';
-                                    ?>
-                                </strong>
+                        }
+                        ?>
+                        <div class="f14">
+                            <strong>
+                                <?php 
+                                    if( isset($row['nombres']) && $row['nombres']!=''){
+                                        echo $row['nombres'].'<br>';
+                                    } else {
+                                        echo 'Nombre del adquirente<br>';
+                                    }
+                                    echo 'C.C: '.$row['numero_documento'] ?? 'Número de documento<br>';
+                                ?>
+                            </strong>
+                        </div>
+
+
+                        <div class="linea-punteada <?php if(!isset($row['firma']) || $row['firma']==''){ echo 'oculto'; } ?>"></div>
+
+                        <div class="box-pagare bg-white p20 radius5 mt20 <?php if(!isset($row['firma']) || $row['firma']==''){ echo 'oculto'; } ?>">
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row pl10 pr10 -mt1">
+                                        <div class="col-md-3 inlineBlock p0 -ml1">
+                                            <div><label class="f18 fw700 pl5">PAGARÉ</label></div>
+                                        </div>
+                                        <div class="col-md-9 right">
+                                            <div class="consecutivo"><?php echo $id_usuario+100; ?></div>
+                                        </div>
+                                    </div>
+                                    <p class="justificado lh2 m0">
+                                        En (los) suscrito(s)________________________________________ 
+                                        Por medio de este PAGARÉ me(nos) obligo(abligamos) incondicionalmente a pagar a la orden de INSTITUCION EDUCATIVA NORTH COLLEGE DE SANTANDER S.A.S. 
+                                        la suma de_____________________________________________________
+                                        ($___________________) el día_________________ de_____________________ del año________________________________ 
+                                        en la ciudad de____________________________ o en otro lugar que se me(nos) requiera para el pago, con intereses moratiorios a la tasa equivalente hasta el doble del corriente bancario, pero sin exeder, en todo caso, los limites legales.
+                                        En constancia de lo anterior, suscribo(suscribimos) el presente PAGARÉ en_____________________ a los_________ días del mes de___________ del año______________
+                                    </p>
+                                </div>
+                                <?php
+                                if( isset($row['firma']) && $row['firma']!=''){
+                            //insertar imagen base64 en la firma
+                            //extraer firma
+                            $firma = $row['firma'];
+                            echo '<div class="espacio-firma" style="display: inline-block;"><img src="'.$firma.'" class="img-firma"></div>';
+                        }
+                                ?>
+                                <div class="f14">
+                                    <strong>
+                                        <?php 
+                                            if( isset($row['nombres']) && $row['nombres']!=''){
+                                                echo $row['nombres'].'<br>';
+                                            } else {
+                                                echo 'Nombre del adquirente<br>';
+                                            }
+                                            echo 'C.C: '.$row['numero_documento'] ?? 'Número de documento<br>';
+                                        ?>
+                                    </strong>
+                                </div>
                             </div>
+
+                            <div class="right">
+                                <input type="hidden" name="progreso" value="4">
+                                
+                            </div>
+
                         </div>
 
-                        <div class="right">
-                            <input type="hidden" name="progreso" value="4">
-                            
-                        </div>
-
-                    </div>
-
-                    
-
+                        
                     </form>
 
                 </div>
             </section>
-
             <button id="btnCrearPdf" class="mt30 f-right f16 mb50 p4"><i class="bi bi-file-earmark-pdf-fill red mr5"></i>Descargar Contrato</button>
-
-
         </div>
     </div>
 </section>
@@ -584,7 +601,7 @@
 
 <?php include __DIR__ . '/footer.php'; ?>
 <script src="<?php echo BASE_URL; ?>src/js/preinscripcion.js"></script> <!-- Se necesita este archivo para el formulario -->
-<script src="<?php echo BASE_URL; ?>src/js/contrato.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
 <script src="<?php echo BASE_URL; ?>src/js/firmaDigital.js"></script>
 <script src="<?php echo BASE_URL; ?>src/js/html2pdf.bundle.min.js"></script>
+<script src="<?php echo BASE_URL; ?>src/js/contrato.js"></script>

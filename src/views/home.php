@@ -14,7 +14,7 @@
                         <div class="f38 fw900 -mt15 negrita">CON NORTH COLLEGE</div>
                         <p class="f2rem fw500 mt30 mb40">Donde el Inglés se convierte en tu mayor activo<i class="bi bi-exclamation-lg f2rem"></i></p>
                         <div>
-                            <a href="matriculate"><button class="btn-lila p8 pl20 pr20 f20">MATRICÚLATE</button></a>   
+                            <a href="registro"><button class="btn-lila p8 pl20 pr20 f20">MATRICÚLATE</button></a>   
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -73,13 +73,20 @@
                             garantizan que los estudiantes alcancen sus objetivos lingüísticos y se destaquen en su vida personal y profesional. Nuestro estudio integral garantiza 
                             que nuestros estudiantes adquieran fluidez y confianza en sus habilidades de comunicación en el idioma inglés.
                         </p>
-                        <div class="center">
+                        <div class="center oculto">
                             <a href="servicios" target="_blank"><button class="btn-lila p8 pl20 pr20 f20 mt50">SERVICIOS</button></a>
                         </div>
                     </div>
                 </div>
+                <div class="row align-items-center pb50">
+                    <div class="col-md-12" id="servicios">
+                        <img src="img/banerServicios2.png" class="img100 radius70" alt="">
+                    </div>
+                </div>
             </div>
         </section><!-- sectionempersa -->
+
+        
 
 
         <section class="sectiontestimonial pt50" id="testimonial">
@@ -296,12 +303,12 @@
 
                     </div>
                     <button class="carousel-control-prev boton-izquierdo-carrusel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon fw-bold" aria-hidden="true"></span>
+                        <span class="white fw-bold">Anterior</span>
                     </button>
                     <button class="carousel-control-next boton-derecho-carrusel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="white fw-bold">Siguiente</span>
+                        <span class="carousel-control-next-icon fw-bold" aria-hidden="true"></span>
                     </button>
                 </div>
                 </div>
@@ -359,6 +366,7 @@
                                     <br>
                                     <textarea class="form-control" name="mensaje" rows="5" placeholder="Déjanos tu mensaje aquí" required></textarea>
                                     <br><br>
+                                    <input type="hidden" name="email" value="noreply@englishnorthcollege.com">
                                     <div class="right"><button class="btn-lila p8 pl20 pr20 f20" type="submit">Enviar</button></div>
                                 </form>
                             </div>
@@ -423,3 +431,12 @@
             </div>
 
         </section>
+
+        <script>
+
+            // Avanzar carrusel automáticamente cada 5 segundos
+            setInterval(function() {
+                $('#carouselExampleIndicators').carousel('next');
+            }, 5000);
+            
+        </script>

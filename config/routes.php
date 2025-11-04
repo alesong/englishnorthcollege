@@ -11,6 +11,8 @@ require_once __DIR__ . '/../src/controllers/registroController.php';
 require_once __DIR__ . '/../src/controllers/verificarController.php';
 require_once __DIR__ . '/../src/controllers/contratoController.php';
 require_once __DIR__ . '/../src/controllers/preinscripcionController.php';
+require_once __DIR__ . '/../src/controllers/marketingController.php';
+require_once __DIR__ . '/../src/controllers/aprobarController.php';
 
 function loadRoutes(Router $router)
 {
@@ -49,6 +51,11 @@ function loadRoutes(Router $router)
     $router->addRoute('GET', '/pagos', function() {
         $controller = new pagosController();
         $controller->index();
+    });
+
+    $router->addRoute('POST', '/pagos', function() {
+        $controller = new pagosController();
+        $controller->pagos();
     });
 
     $router->addRoute('GET', '/servicios', function() {
@@ -128,6 +135,27 @@ function loadRoutes(Router $router)
         $controller = new contratoController();
         $controller->contrato();
     });
+
+    $router->addRoute('GET', '/marketing', function() {
+        $controller = new marketingController();
+        $controller->index();
+    });
+
+    $router->addRoute('POST', '/marketing', function() {
+        $controller = new marketingController();
+        $controller->getContrato();
+    });
+
+    $router->addRoute('GET', '/aprobar', function() {
+        $controller = new aprobarController();
+        $controller->index();
+    });
+
+    $router->addRoute('POST', '/aprobar', function() {
+        $controller = new aprobarController();
+        $controller->aprobar();
+    });
+        
 }
 
 ?>

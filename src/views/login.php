@@ -52,7 +52,7 @@
                             
                         </div>
                         <div class="d-grid gap-2">
-                            <button id="btn-login" type="submit" class="btn btn-primary">Ingresar</button>
+                            <button id="btn-login" type="submit" class="p10 btn-primary">Ingresar</button>
                             <div id="alert-error-login" class="alert oculto"></div>
                             <a href="registro" type="button" class="btn-purple mt-2 center" id="showRegisterForm">No tengo una cuenta</a>
                         </div>

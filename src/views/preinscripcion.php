@@ -30,17 +30,11 @@
     .buttons {
       margin-top: 10px;
     }
+    .progress-bar-9c3 {
+        background-color: #9c3;
+    }
 </style>
-<section class="sectionUser">
-    <div class="container">
-        <div class="row left">
-            <div class="col-md-12 right">
-            <span class="mr10 white"><?php echo $_SESSION['user'] ?? 'Usuario no registrado'; ?><input id="userName" type="hidden" name="user" value="<?php echo $_SESSION['user'] ?? 'Usuario no registrado'; ?>"></span>
-            <a href="logout" id="btn-logout" type="button" class="btn btn-lila f14 mt4 mb4">Cerrar Sesión</a>
-            </div>
-        </div>
-    </div>
-</section>
+<?php include __DIR__ . '/sectionUser.php'; ?>
 
 <section class="">
     <div class="container">
@@ -56,6 +50,11 @@
                             
                             
                             <hr class="-ml20 -mr20">
+
+                            <div class="progress mb30" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar-9c3 progress-bar" style="width: 15%">15%</div>
+                            </div>
+
                             <div id="carouselExample" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -106,8 +105,22 @@
                                                             $label = 'Estado Civil';
                                                             $type = 'text';
                                                             $required = 'required';
-                                                            require __DIR__ . '../../controllers/include_input.php';
+                                                            //require __DIR__ . '../../controllers/include_input.php';
                                                         ?>
+                                                        <label for=""><?php echo $label; ?></label>
+                                                        <select name="<?php echo $id; ?>" id="<?php echo $id; ?>" class="form-control" required>
+                                                            <?php
+                                                                if ($row['estado_civil'] != '') {
+                                                                    echo '<option value="'.$row['estado_civil'].'" selected>'.$row['estado_civil'].'</option>';
+                                                                }
+                                                            ?>
+                                                            <option value="">Seleccione</option>
+                                                            <option value="Soltero">Soltero</option>
+                                                            <option value="Casado">Casado</option>
+                                                            <option value="Viudo">Viudo</option>
+                                                            <option value="Divorciado">Divorciado</option>
+                                                            <option value="Separado">Separado</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -125,8 +138,8 @@
                                             <div class="alert alert-error-contrato oculto" role="alert"></div>
                                             <div class="right">
                                                 
-                                                <button class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                                    <span class="f16">Siguiente</span>
+                                                <button id="btn-finalizar" class="btn-purpura pl15 pr15 pt8 pb8" type="submit">
+                                                    <span class="f16">Preinscripción</span>
                                                 </button>
                                             </div>
                                                 
@@ -135,7 +148,7 @@
                                 </div>
                                 <div class="carousel-item">
                                     <div>
-                                        <div class="center mb30 fw500 f20">Informacióm de Contacto</div>
+                                        <div class="center mb30 fw500 f20">Información de Contacto</div>
                                         <form action="" id="form-contrato-2">
                                             <div class="row mb30">
                                                 <div class="col-md-6">
@@ -181,7 +194,7 @@
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                                     <span class="f16"><i class="bi bi-caret-left-fill"></i></span>
                                                 </button>
-                                                <button class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <button  id="btn45" onclick="progressBar(45)" class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                                                     <span class="f16">Siguiente</span>
                                                 </button>
                                             </div>
@@ -273,7 +286,7 @@
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                                     <span class="f16"><i class="bi bi-caret-left-fill"></i></span>
                                                 </button>
-                                                <button class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <button  id="btn60" onclick="progressBar(60)" class="btn-lila pl15 pr15 pt8 pb8" type="submit" data-bs-target="#carouselExample" data-bs-slide="next">
                                                     <span class="f16">Siguiente</span>
                                                 </button>
                                             </div>
@@ -359,7 +372,7 @@
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                                     <span class="f16"><i class="bi bi-caret-left-fill"></i></span>
                                                 </button>
-                                                <button class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <button id="btn85" onclick="progressBar(85)" class="btn-lila pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                                                     <span class="f16">Siguiente</span>
                                                 </button>
                                         </div>
@@ -367,26 +380,28 @@
                                 </div>
 
                                 <div class="carousel-item">
-                                    <div class="center mb30 fw500 f20">Usuarios para ingresar a EMW</div>
+                                    <div class="center mb30 fw500 f20">Información de estudiantes</div>
                                     <form action="" id="form-preinscripcion">
+                                        <div class="row mb30">
+                                            <div class="col-md-6 justify-content-center pt30">
+                                                <div class="form-check form-switch ml6">
+                                                    <input class="form-check-input" type="checkbox" value="" id="checkMismoAdquiriente" switch>
+                                                    <label class="form-check-label" for="checkMismoAdquiriente">
+                                                        Marque esta casilla si el estudiante es el miso titular.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row mb30">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <?php
                                                         $id = 'nombre_usuario_emw_principal';
-                                                        $label = 'Nombre completo de quien recibe la capacitación';
+                                                        $label = 'Nombre completo del estudiante.';
                                                         $type = 'text';
                                                         $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
                                                     ?>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 justify-content-center pt30">
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" value="" id="checkMismoAdquiriente" switch>
-                                                    <label class="form-check-label" for="checkMismoAdquiriente">
-                                                        El usuario es el miso adquiriente.
-                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
@@ -396,7 +411,7 @@
                                                 <div class="form-group">
                                                     <?php
                                                         $id = 'identificacion_usuario_emw_principal';
-                                                        $label = 'No. Documento de Identidad';
+                                                        $label = 'No. Documento de Identidad del estudiante.';
                                                         $type = 'text';
                                                         $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
@@ -408,7 +423,7 @@
                                                 <div class="form-group">
                                                     <?php
                                                         $id = 'email_usuario_emw_principal';
-                                                        $label = 'Correo Electronico';
+                                                        $label = 'Correo electrónico del estudiante.';
                                                         $type = 'email';
                                                         $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
@@ -435,7 +450,7 @@
                                                 <div class="form-group">
                                                     <?php
                                                         $id = 'nombre_usuario_emw_beneficiario';
-                                                        $label = 'Nombre completo de beneficiario';
+                                                        $label = 'Nombre completo del estudiante beneficiario';
                                                         $type = 'text';
                                                         $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
@@ -461,7 +476,7 @@
                                                 <div class="form-group">
                                                     <?php
                                                         $id = 'email_usuario_emw_beneficiario';
-                                                        $label = 'Correo Electronico';
+                                                        $label = 'Correo electrónico.';
                                                         $type = 'email';
                                                         $required = 'required';
                                                         require __DIR__ . '../../controllers/include_input.php';
@@ -495,7 +510,7 @@
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                                     <span class="f16"><i class="bi bi-caret-left-fill"></i></span>
                                                 </button>
-                                                <button id="btn-finalizar" class="btn-purpura pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <button id="" class="btn-purpura pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                                                     <span class="f16">Finalizar</span>
                                                 </button>
                                             </div>
@@ -581,7 +596,7 @@
                                                 <button class="pl10 pr10 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                                     <span class="f16"><i class="bi bi-caret-left-fill"></i></span>
                                                 </button>
-                                                <button id="btn-finalizar" class="btn-purpura pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <button id="" class="btn-purpura pl15 pr15 pt8 pb8" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
                                                     <span class="f16">Finalizar</span>
                                                 </button>
                                         </div>

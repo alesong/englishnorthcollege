@@ -75,6 +75,7 @@ class registroController
                 verificado BOOLEAN DEFAULT FALSE,
                 fecha_verificacion DATETIME DEFAULT CURRENT_TIMESTAMP,
                 aprobado BOOLEAN DEFAULT FALSE,
+                rol VARCHAR(50) DEFAULT 'estudiante',
                 estado_user INT DEFAULT 0
             )";
             $stmt = $pdo->prepare($sql);

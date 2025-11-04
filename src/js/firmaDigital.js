@@ -26,6 +26,21 @@ const canvas = document.getElementById('signature-pad');
         return;
       }
 
+      checkTrimodular = document.getElementById('checkTrimodular').checked;
+      checkBimodular = document.getElementById('checkBimodular').checked;
+      checkUnimodular = document.getElementById('checkUnimodular').checked;
+
+      input_valor_programa = document.getElementById('input_valor_programa').value;
+      input_valor_cuota_inicial = document.getElementById('input_valor_cuota_inicial').value;
+      input_valor_cuotas_mensuales = document.getElementById('input_valor_cuotas_mensuales').value;
+      input_numero_cuotas = document.getElementById('input_numero_cuotas').value;
+
+      checkOfertaEmpresa = document.getElementById('checkOfertaEmpresa').checked;
+      checkPrivacidad = document.getElementById('checkPrivacidad').checked;
+
+      
+
+
       // Obtener la firma como imagen base64
       const firmaImagen = signaturePad.toDataURL("image/png");
       
@@ -33,6 +48,15 @@ const canvas = document.getElementById('signature-pad');
         url: 'contrato',
         type: 'POST',
         data: {
+          checkTrimodular: checkTrimodular,
+          checkBimodular: checkBimodular,
+          checkUnimodular: checkUnimodular,
+          input_valor_programa: input_valor_programa,
+          input_valor_cuota_inicial: input_valor_cuota_inicial,
+          input_valor_cuotas_mensuales: input_valor_cuotas_mensuales,
+          input_numero_cuotas: input_numero_cuotas,
+          checkOfertaEmpresa: checkOfertaEmpresa,
+          checkPrivacidad: checkPrivacidad,
           firma: firmaImagen
         },
         success: function(data) {
@@ -44,4 +68,5 @@ const canvas = document.getElementById('signature-pad');
           $('.box-firma').addClass('bb2');
         }
       });
+
     });

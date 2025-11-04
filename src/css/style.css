@@ -6,11 +6,37 @@ body {
     background-color: #ffffff;
     color: #333;
 }
+
+
+/*-----------------------------------------*/
+.sectionUser {
+        background-color: #9c3;
+    }
+    .sectionFormContrato {
+        background-image: url('../../img/BACKGROUND_BLANCO.png');
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .img-logo-form {
+        max-width: 100px;
+    }
+    .tituNorthCollege {
+        color: #9c3;
+        font-weight: bold;
+    }
+/*-----------------------------------------*/
+
+nav{
+    letter-spacing: -0.5px;
+}
+
+
 nav div ul li a:hover{
     /*background-image: linear-gradient(to bottom, #cb82e4, #c773e3);*/
     text-shadow: 5px 5px 5px rgba(199, 114, 227, 0.651);
     color: #C772E3;
     font-weight: 400;
+    
 }
 
 h1 {
@@ -131,10 +157,13 @@ button:hover {
 }
 .boton-derecho-carrusel{
     border-radius: 0px 50px 50px 0px;
-    
+    /*background-color: rgba(153, 204, 51, 0.5);*/
+    /*text-shadow: #111 0px 0px 10px;*/
 }
 .boton-izquierdo-carrusel{
     border-radius: 50px 0px 0px 50px;
+    /*background-color: rgba(153, 204, 51, 0.5);*/
+    /*text-shadow: #111 0px 0px 10px;*/
 }
 .sectionestumomento{
     padding-top: 40px;
